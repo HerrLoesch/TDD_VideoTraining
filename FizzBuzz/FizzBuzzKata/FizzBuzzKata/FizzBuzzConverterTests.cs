@@ -14,6 +14,20 @@ namespace FizzBuzzKata.Tests
      * 15 -> FizzBuzz */
     public class FizzBuzzConverterTests
     {
+        [Test]
+        public void Init()
+        {
+            new FizzBuzzConverter();
+        }
 
+        [Test]
+        public void Given_1_than_1_is_returned()
+        {
+            var sut = new FizzBuzzConverter();
+
+            var result = sut.Convert(1);
+
+            Assert.AreEqual(1, result);
+        }
     }
 }
