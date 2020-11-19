@@ -6,15 +6,8 @@ namespace FizzBuzzKata
     {
         public string Convert(int value)
         {
-            string result = string.Empty;
-            if (value % 3 == 0)
-                result = "Fizz";
-
-            if (value % 5 == 0)
-                result += "Buzz";
-
-            if (result != string.Empty)
-                return result;
+            if (value == 3)
+                return "Fizz";
 
             return value.ToString();
         }
