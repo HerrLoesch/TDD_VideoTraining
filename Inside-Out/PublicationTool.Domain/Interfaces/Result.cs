@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace PublicationTool.Domain.Infrastructure
+namespace PublicationTool.Domain.Interfaces
 {
     public class Result
     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using PublicationTool.Domain.Infrastructure;
-using PublicationTool.Domain.Object;
+using PublicationTool.Domain.Interfaces;
+using PublicationTool.Domain.Objects;
 
 namespace PublicationTool.Domain.Logic
 {

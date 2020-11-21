@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PublicationTool.Domain.Object
+namespace PublicationTool.Domain.Objects
 {
     public class Publication
     {

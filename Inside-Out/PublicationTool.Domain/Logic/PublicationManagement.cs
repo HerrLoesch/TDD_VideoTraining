@@ -1,9 +1,10 @@
 ﻿using PublicationTool.Domain.Infrastructure;
-using PublicationTool.Domain.Object;
+using PublicationTool.Domain.Interfaces;
+using PublicationTool.Domain.Objects;
 
 namespace PublicationTool.Domain.Logic
 {
-    public class PublicationManagement
+    public class PublicationManagement : IPublicationManagement
     {
         private readonly IPublicationRepository publicationRepository;
         private readonly PublicationValidator publicationValidator;

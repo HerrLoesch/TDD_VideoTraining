@@ -2,7 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 using PublicationTool.Domain.Logic;
-using PublicationTool.Domain.Object;
+using PublicationTool.Domain.Objects;
 
 namespace PublicationTool.Domain.Tests.Logic
 {
