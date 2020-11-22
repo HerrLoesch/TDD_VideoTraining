@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using PublicationTool.Domain.Infrastructure;
@@ -78,6 +79,11 @@ namespace PublicationTool.Domain.Tests.Logic
         {
             SaveWasCalled = true;
             return new Result();
+        }
+
+        public IEnumerable<Publication> GetAll()
+        {
+            return null;
         }
     }
 }

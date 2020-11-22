@@ -6,7 +6,7 @@ using PublicationTool.Domain.Objects;
 
 namespace PublicationTool.Domain.Tests.Logic
 {
-    public class ApplicationValidatorTests
+    public class PublicationValidatorTests
     {
         [Test]
         public void Title_is_reported_as_invalid_if_it_was_not_set()
