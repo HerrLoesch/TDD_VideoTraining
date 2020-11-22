@@ -1,18 +1,21 @@
 ﻿using System;
 using NUnit.Framework;
+using PublicationTool.Domain.Interfaces;
+using PublicationTool.Domain.Logic;
+using PublicationTool.Domain.Objects;
 
 namespace PublicationTool.Domain.Tests
 {
     public class PublicationManagementTests
     {
         private PublicationManagement sut;
-        private PublicationRepositoryMock publicationRepository;
+        private PublicationRepositoryMock publicationRepositoryMock;
 
         [SetUp]
         public void Init()
         {
-            publicationRepository = new PublicationRepositoryMock();
-            sut = new PublicationManagement(publicationRepository);
+            publicationRepositoryMock = new PublicationRepositoryMock();
+            sut = new PublicationManagement(publicationRepositoryMock);
         }
 
         [Test]
@@ -21,7 +24,7 @@ namespace PublicationTool.Domain.Tests
             var result = sut.Save(new Publication());
 
             Assert.False(result);
-            Assert.False(publicationRepository.SaveWasCalled);
+            Assert.False(publicationRepositoryMock.SaveWasCalled);
         }
 
         [Test]
@@ -34,12 +37,12 @@ namespace PublicationTool.Domain.Tests
             var result = sut.Save(publication);
 
             Assert.True(result);
-            Assert.True(publicationRepository.SaveWasCalled);
+            Assert.True(publicationRepositoryMock.SaveWasCalled);
 
         }
     }
 
-    public class PublicationRepositoryMock
+    public class PublicationRepositoryMock : IPublicationRepository
     {
         public bool SaveWasCalled { get; set; }
 
@@ -48,32 +51,5 @@ namespace PublicationTool.Domain.Tests
             SaveWasCalled = true;
             return true;
         }
-    }
-
-    public class PublicationManagement
-    {
-        private readonly PublicationRepositoryMock publicationRepository;
-
-        public PublicationManagement(PublicationRepositoryMock publicationRepository)
-        {
-            this.publicationRepository = publicationRepository;
-        }
-
-        public bool Save(Publication publication)
-        {
-            if (publication.Date != null && publication.Title != null)
-            {
-                this.publicationRepository.Save(publication);
-                return true;
-            }
-
-            return false;
-        }
-    }
-
-    public class Publication
-    {
-        public string Title { get; set; }
-        public DateTime? Date { get; set; }
     }
 }
