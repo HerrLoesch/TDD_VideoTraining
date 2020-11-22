@@ -6,11 +6,13 @@ namespace PublicationTool.Domain.Tests
     public class PublicationManagementTests
     {
         private PublicationManagement sut;
+        private PublicationRepositoryMock publicationRepository;
 
         [SetUp]
         public void Init()
         {
-            sut = new PublicationManagement();
+            publicationRepository = new PublicationRepositoryMock();
+            sut = new PublicationManagement(publicationRepository);
         }
 
         [Test]
@@ -19,6 +21,7 @@ namespace PublicationTool.Domain.Tests
             var result = sut.Save(new Publication());
 
             Assert.False(result);
+            Assert.False(publicationRepository.SaveWasCalled);
         }
 
         [Test]
@@ -31,14 +34,40 @@ namespace PublicationTool.Domain.Tests
             var result = sut.Save(publication);
 
             Assert.True(result);
+            Assert.True(publicationRepository.SaveWasCalled);
+
+        }
+    }
+
+    public class PublicationRepositoryMock
+    {
+        public bool SaveWasCalled { get; set; }
+
+        public bool Save(Publication publication)
+        {
+            SaveWasCalled = true;
+            return true;
         }
     }
 
     public class PublicationManagement
     {
+        private readonly PublicationRepositoryMock publicationRepository;
+
+        public PublicationManagement(PublicationRepositoryMock publicationRepository)
+        {
+            this.publicationRepository = publicationRepository;
+        }
+
         public bool Save(Publication publication)
         {
-            return publication.Date != null && publication.Title != null;
+            if (publication.Date != null && publication.Title != null)
+            {
+                this.publicationRepository.Save(publication);
+                return true;
+            }
+
+            return false;
         }
     }
 
