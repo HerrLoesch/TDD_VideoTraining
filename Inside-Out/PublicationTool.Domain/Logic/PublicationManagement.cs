@@ -11,16 +11,16 @@ namespace PublicationTool.Domain.Logic
         {
             this.publicationRepository = publicationRepository;
         }
-
-        public bool Save(Publication publication)
+        
+        public Result Save(Publication publication)
         {
-            if (publication.Date != null && publication.Title != null)
+            if (publication.Date != null && publication.Title != null && publication.Title.Length > 3)
             {
                 this.publicationRepository.Save(publication);
-                return true;
+                return new Result() { WasSuccessful = true };
             }
 
-            return false;
+            return new Result() { Error = "Title"};
         }
     }
 }

@@ -23,7 +23,7 @@ namespace PublicationTool.Domain.Tests
         {
             var result = sut.Save(new Publication());
 
-            Assert.False(result);
+            Assert.False(result.WasSuccessful);
             Assert.False(publicationRepositoryMock.SaveWasCalled);
         }
 
@@ -36,9 +36,20 @@ namespace PublicationTool.Domain.Tests
 
             var result = sut.Save(publication);
 
-            Assert.True(result);
+            Assert.True(result.WasSuccessful);
             Assert.True(publicationRepositoryMock.SaveWasCalled);
+        }
 
+        [Test]
+        public void Error_text_is_provided_if_title_is_too_short()
+        {
+            var publication = new Publication();
+            publication.Title = "T";
+            publication.Date = DateTime.Now;
+
+            Result result = sut.Save(publication);
+
+            Assert.True(result.Error.Contains("Title"));
         }
     }
 
