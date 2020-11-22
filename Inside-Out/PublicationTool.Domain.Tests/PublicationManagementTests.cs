@@ -54,6 +54,24 @@ namespace PublicationTool.Domain.Tests
         }
 
         [Test]
+        public void Error_text_is_provided_if_title_is_too_long()
+        {
+            var publication = new Publication();
+
+            publication.Title = "x";
+            for (int i = 0; i < 130; i++)
+            {
+                publication.Title += "x";
+            }
+
+            publication.Date = DateTime.Now;
+
+            Result result = sut.Save(publication);
+
+            Assert.True(result.Errors.Any(x => x.ToLower().Contains("title")));
+        }
+
+        [Test]
         public void Error_text_is_provided_if_date_is_not_set()
         {
             var publication = new Publication();

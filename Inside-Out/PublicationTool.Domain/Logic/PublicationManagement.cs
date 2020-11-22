@@ -6,25 +6,17 @@ namespace PublicationTool.Domain.Logic
     public class PublicationManagement
     {
         private readonly IPublicationRepository publicationRepository;
+        private readonly PublicationValidator publicationValidator;
 
         public PublicationManagement(IPublicationRepository publicationRepository)
         {
             this.publicationRepository = publicationRepository;
+            this.publicationValidator = new PublicationValidator();
         }
         
         public Result Save(Publication publication)
         {
-            var result = new Result();
-
-            if (publication.Date == null)
-            {
-                result.Error = "Publication date is wrong!";
-            }
-            
-            if (publication.Title == null || publication.Title?.Length < 3)
-            {
-                result.Error = "Title is wrong!";
-            }
+            var result = this.publicationValidator.Validate(publication);
 
             if(result.WasSuccessful)
             {
