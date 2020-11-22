@@ -2,7 +2,13 @@
 {
     public class Result
     {
-        public bool WasSuccessful { get; set; }
+        public Result()
+        {
+            Error = "";
+        }
+
+        public bool WasSuccessful => string.IsNullOrEmpty(Error);
+
         public string Error { get; set; }
     }
 }

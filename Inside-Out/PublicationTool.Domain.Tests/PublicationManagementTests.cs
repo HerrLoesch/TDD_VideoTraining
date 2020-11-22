@@ -51,6 +51,18 @@ namespace PublicationTool.Domain.Tests
 
             Assert.True(result.Error.Contains("Title"));
         }
+
+        [Test]
+        public void Error_text_is_provided_if_date_is_not_set()
+        {
+            var publication = new Publication();
+            publication.Title = "Title";
+            publication.Date = null;
+
+            Result result = sut.Save(publication);
+
+            Assert.True(result.Error.ToLower().Contains("date"));
+        }
     }
 
     public class PublicationRepositoryMock : IPublicationRepository

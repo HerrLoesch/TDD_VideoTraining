@@ -14,13 +14,22 @@ namespace PublicationTool.Domain.Logic
         
         public Result Save(Publication publication)
         {
-            if (publication.Date != null && publication.Title != null && publication.Title.Length > 3)
+            var result = new Result();
+
+            if (publication.Date == null)
+            {
+                result.Error = "Publication date is wrong!";
+            }
+            else if (publication.Title == null || publication.Title?.Length < 3)
+            {
+                result.Error = "Title is wrong!";
+            }
+            else
             {
                 this.publicationRepository.Save(publication);
-                return new Result() { WasSuccessful = true };
             }
 
-            return new Result() { Error = "Title"};
+            return result;
         }
     }
 }
