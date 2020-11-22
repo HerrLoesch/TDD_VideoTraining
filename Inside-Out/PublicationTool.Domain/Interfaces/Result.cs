@@ -1,14 +1,28 @@
-﻿namespace PublicationTool.Domain.Interfaces
+﻿using System.Collections.Generic;
+
+namespace PublicationTool.Domain.Interfaces
 {
     public class Result
     {
+        private string error = "";
+
         public Result()
         {
-            Error = "";
+            Errors = new List<string>();
         }
 
         public bool WasSuccessful => string.IsNullOrEmpty(Error);
 
-        public string Error { get; set; }
+        public string Error
+        {
+            get => error;
+            set
+            {
+                error = value;
+                Errors.Add(error);
+            } 
+        }
+
+        public List<string> Errors { get; set; }
     }
 }

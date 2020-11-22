@@ -20,11 +20,13 @@ namespace PublicationTool.Domain.Logic
             {
                 result.Error = "Publication date is wrong!";
             }
-            else if (publication.Title == null || publication.Title?.Length < 3)
+            
+            if (publication.Title == null || publication.Title?.Length < 3)
             {
                 result.Error = "Title is wrong!";
             }
-            else
+
+            if(result.WasSuccessful)
             {
                 this.publicationRepository.Save(publication);
             }

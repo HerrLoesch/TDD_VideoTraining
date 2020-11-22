@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using NUnit.Framework;
 using PublicationTool.Domain.Interfaces;
 using PublicationTool.Domain.Logic;
@@ -49,7 +50,7 @@ namespace PublicationTool.Domain.Tests
 
             Result result = sut.Save(publication);
 
-            Assert.True(result.Error.Contains("Title"));
+            Assert.True(result.Errors.Any(x => x.ToLower().Contains("title")));
         }
 
         [Test]
@@ -61,7 +62,20 @@ namespace PublicationTool.Domain.Tests
 
             Result result = sut.Save(publication);
 
-            Assert.True(result.Error.ToLower().Contains("date"));
+            Assert.True(result.Errors.Any(x => x.ToLower().Contains("date")));
+        }
+
+        [Test]
+        public void Error_text_is_provided_for_all_invalid_properties_of_publication()
+        {
+            var publication = new Publication();
+            publication.Title = "T";
+            publication.Date = null;
+
+            Result result = sut.Save(publication);
+
+            Assert.True(result.Errors.Any(x => x.ToLower().Contains("date")), "No error text was provided for date.");
+            Assert.True(result.Errors.Any(x => x.Contains("Title")), "no error text was provided for title.");
         }
     }
 
