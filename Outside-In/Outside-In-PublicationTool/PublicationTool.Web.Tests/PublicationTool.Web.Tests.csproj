@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PublicationTool.Domain\PublicationTool.Domain.csproj" />
+    <ProjectReference Include="..\PublicationTool.Web\PublicationTool.Web.csproj" />
   </ItemGroup>
 
 </Project>

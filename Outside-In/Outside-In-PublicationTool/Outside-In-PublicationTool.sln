@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicationTool.Web", "PublicationTool.Web\PublicationTool.Web.csproj", "{622D222E-4083-4E1D-970D-BC18C8B3DA6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PublicationTool.Web", "PublicationTool.Web\PublicationTool.Web.csproj", "{622D222E-4083-4E1D-970D-BC18C8B3DA6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicationTool.AcceptanceTests", "PublicationTool.AcceptanceTests\PublicationTool.AcceptanceTests.csproj", "{B348521E-206B-4387-9AAA-85648DBA4C82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PublicationTool.AcceptanceTests", "PublicationTool.AcceptanceTests\PublicationTool.AcceptanceTests.csproj", "{B348521E-206B-4387-9AAA-85648DBA4C82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PublicationTool.Web.Tests", "PublicationTool.Web.Tests\PublicationTool.Web.Tests.csproj", "{9C44F5DA-9D0D-4C60-9CF5-F21A874B0157}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PublicationTool.Domain", "PublicationTool.Domain\PublicationTool.Domain.csproj", "{992D2928-B7FC-463D-82EA-15A5F270457D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{B348521E-206B-4387-9AAA-85648DBA4C82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B348521E-206B-4387-9AAA-85648DBA4C82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B348521E-206B-4387-9AAA-85648DBA4C82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C44F5DA-9D0D-4C60-9CF5-F21A874B0157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C44F5DA-9D0D-4C60-9CF5-F21A874B0157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C44F5DA-9D0D-4C60-9CF5-F21A874B0157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C44F5DA-9D0D-4C60-9CF5-F21A874B0157}.Release|Any CPU.Build.0 = Release|Any CPU
+		{992D2928-B7FC-463D-82EA-15A5F270457D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{992D2928-B7FC-463D-82EA-15A5F270457D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{992D2928-B7FC-463D-82EA-15A5F270457D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{992D2928-B7FC-463D-82EA-15A5F270457D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
