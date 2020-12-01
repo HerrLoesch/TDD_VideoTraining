@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
+using PublicationTool.Domain;
 
 namespace PublicationTool.Web.Controllers
 {
@@ -11,6 +14,11 @@ namespace PublicationTool.Web.Controllers
         public IEnumerable<string> Get()
         {
             return new List<string>();
+        }
+
+        public HttpResponseMessage Save(Publication publication)
+        {
+            return new HttpResponseMessage(HttpStatusCode.OK);
         }
     }
 }

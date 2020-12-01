@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using NUnit.Framework;
@@ -33,7 +34,7 @@ namespace PublicationTool.AcceptanceTests
             var publication = new Publication {Date = DateTime.Now, Title = "Title"};
             var serializedPublication = JsonSerializer.Serialize(publication);
 
-            var result = await httpClient.PostAsync(requestUri, new StringContent(serializedPublication));
+            var result = await httpClient.PostAsync(requestUri, new StringContent(serializedPublication, Encoding.UTF8, "application/json"));
 
             Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
         }
