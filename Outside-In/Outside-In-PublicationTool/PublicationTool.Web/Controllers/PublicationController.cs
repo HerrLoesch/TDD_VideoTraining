@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using PublicationTool.Domain;
+using PublicationTool.Domain.Interfaces;
 
 namespace PublicationTool.Web.Controllers
 {
@@ -10,6 +11,13 @@ namespace PublicationTool.Web.Controllers
     [ApiController]
     public class PublicationController : ControllerBase
     {
+        private IPublicationRepository repositoryStub;
+
+        public PublicationController(IPublicationRepository repositoryStub)
+        {
+            this.repositoryStub = repositoryStub;
+        }
+
         [HttpGet]
         public IEnumerable<string> Get()
         {
@@ -18,6 +26,8 @@ namespace PublicationTool.Web.Controllers
 
         public HttpResponseMessage Save(Publication publication)
         {
+            repositoryStub.Save(publication);
+
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
     }
