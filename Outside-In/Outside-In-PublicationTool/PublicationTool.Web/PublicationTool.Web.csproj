@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PublicationTool.Data\PublicationTool.Data.csproj" />
     <ProjectReference Include="..\PublicationTool.Domain\PublicationTool.Domain.csproj" />
   </ItemGroup>
 
