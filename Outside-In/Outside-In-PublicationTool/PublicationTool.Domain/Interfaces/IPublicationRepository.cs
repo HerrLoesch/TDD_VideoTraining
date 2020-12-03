@@ -1,4 +1,6 @@
-﻿namespace PublicationTool.Domain.Interfaces
+﻿using PublicationTool.Domain.Objects;
+
+namespace PublicationTool.Domain.Interfaces
 {
     public interface IPublicationRepository
     {

@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using PublicationTool.Domain;
+using PublicationTool.Domain.Objects;
 
 namespace PublicationTool.AcceptanceTests
 {
@@ -37,6 +38,20 @@ namespace PublicationTool.AcceptanceTests
             var result = await httpClient.PostAsync(requestUri, new StringContent(serializedPublication, Encoding.UTF8, "application/json"));
 
             Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
+        }
+
+        [Test]
+        public async Task Invalid_properties_are_reported_separatly()
+        {
+            var publication = new Publication();
+            var serializedPublication = JsonSerializer.Serialize(publication);
+
+            var result = await httpClient.PostAsync(requestUri, new StringContent(serializedPublication, Encoding.UTF8, "application/json"));
+            var content = await result.Content.ReadAsStringAsync();
+
+            Assert.AreEqual(HttpStatusCode.BadRequest, result.StatusCode);
+            Assert.IsTrue(content.ToLower().Contains("title"));
+            Assert.IsTrue(content.ToLower().Contains("date"));
         }
     }
 }
