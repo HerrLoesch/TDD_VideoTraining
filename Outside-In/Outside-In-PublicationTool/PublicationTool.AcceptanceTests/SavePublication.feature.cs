@@ -105,7 +105,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("is a publication with title \"TDD Advanced\" published on \"22.06.2020\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 6
- testRunner.When("the publication stored", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the publication is stored", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 7
  testRunner.Then("a publication \"TDD Advanced\" published on \"22.06.2020\" can be found in the data b" +
@@ -154,7 +154,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given(string.Format("is a publication with title \"{0}\" published on \"{1}\"", title, publicationDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 12
- testRunner.When("the publication stored", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the publication is stored", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
  testRunner.Then(string.Format("a publication \"{0}\" can not be found in the data base", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -202,7 +202,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given(string.Format("is a publication with title \"{0}\" published on \"22.06.2020\"", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 23
- testRunner.When("the publication stored", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the publication is stored", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 24
  testRunner.Then(string.Format("a publication \"{0}\" can not be found in the data base", title), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

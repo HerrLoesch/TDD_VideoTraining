@@ -17,4 +17,9 @@
     <ProjectReference Include="..\PublicationTool.Domain\PublicationTool.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\" />
+    <Folder Include="Bindings\" />
+  </ItemGroup>
+
 </Project>
